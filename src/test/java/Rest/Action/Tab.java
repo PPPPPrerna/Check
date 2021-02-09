@@ -22,20 +22,20 @@ public class Tab {
 		
 		WebElement w1=driver.findElement(By.xpath("//table[@id='customers']"));
 		
-		List<WebElement> l1=w1.findElements(By.xpath(".//tbody/tr"));
+		List<WebElement> l1=driver.findElements(By.xpath("//table[@id='customers']/tbody/tr"));
 		
 		System.out.println(l1.size());
 		
-		for(int i=2;i<l1.size();i++) {
+		for(int i=2;i<=l1.size();i++) {
 			
 			
-			for(int j=1;j<=3;j++) {
+		//	for(int j=1;j<=3;j++) {
 			
-			String a=driver.findElement(By.xpath("//tbody/tr["+i+"]/td["+j+"]")).getText();
+			String a=driver.findElement(By.xpath("//table[@id='customers']/tbody/tr["+i+"]/td[2]")).getText();
 			
 			System.out.println(a);
 			
-			}
+			//}
 		}
 		
 		

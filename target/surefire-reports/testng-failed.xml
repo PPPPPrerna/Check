@@ -3,11 +3,11 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
   <test thread-count="5" name="Test(failed)" verbose="0">
     <classes>
-      <class name="Rest.Action.Adiii">
+      <class name="Rest.Action.Tab">
         <methods>
-          <include name="qw"/>
+          <include name="fgh"/>
         </methods>
-      </class> <!-- Rest.Action.Adiii -->
+      </class> <!-- Rest.Action.Tab -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

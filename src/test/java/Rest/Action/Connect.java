@@ -14,22 +14,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class Http {
-
+public class Connect {
+	
 	
 	@Test
 	
 	public void start() throws MalformedURLException, IOException {
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Prerna Pandey\\Desktop\\chrome v-87\\chromedriver_win32 (1)\\chromedriver.exe");
+		System.setProperty("webdriver.driver.chrome", System.getProperty("user.dir")+"//chromedriver.exe");
 		
 		WebDriver driver = new ChromeDriver();
 		
-		
-		driver.manage().window().maximize();
-		
-		driver.manage().timeouts().implicitlyWait(8000000, TimeUnit.SECONDS);
-		
+		driver.manage().timeouts().implicitlyWait(2000000, TimeUnit.SECONDS);
 		
 		driver.get("https://www.myntra.com/");
 		
@@ -41,31 +37,30 @@ public class Http {
 			
 			if(l1.get(i).getAttribute("href")!=null && (!l1.get(i).getAttribute("href").contains("javascript"))) {
 				
-				l2.add(l1.get(i));
 				
+				l2.add(l1.get(i));
 			}
-			
 		}
 		
-		System.out.println(l2);
+		System.out.println(l1.size());
 		
+		System.out.println(l2.size());
 		
-		for(int j=0;j<l2.size();j++) {
+		for(int i=0;i<l2.size();i++) {
 			
-			HttpURLConnection connection = (HttpURLConnection) new URL(l2.get(j).getAttribute("href")).openConnection();
+			HttpURLConnection con = (HttpURLConnection) new URL(l2.get(i).getAttribute("href")).openConnection();
 			
+			con.connect();
 			
-			connection.connect();
+			String x=con.getResponseMessage();
 			
-			String response = connection.getResponseMessage();
+			System.out.println(x);
 			
-			connection.disconnect();
-			
-			System.out.println(l2.get(j).getAttribute("href")+" "+response);
+			con.disconnect();
 			
 		}
 		
 		
 	}
-	
+
 }
